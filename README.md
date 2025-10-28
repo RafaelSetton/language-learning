@@ -1,73 +1,81 @@
-# React + TypeScript + Vite
+# 🗣️ Language Training
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A lightweight **React + TypeScript** web app that helps you **practice vocabulary** and **track your progress** over time.
+Easily organize your words by **tags**, test yourself interactively, and watch your **streak and accuracy** grow — all stored locally on your device.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## ✨ Features
 
-## React Compiler
+- ✅ **Word Practice** – Review and test your vocabulary in multiple languages.
+- 🏷️ **Tag-Based Filtering** – Organize words by categories such as _verbs_, _food_, _travel_, etc.
+- 📈 **Progress Tracking** – Track your **daily streak** and **overall accuracy score**.
+- 💾 **Offline-Ready** – All your data is securely saved in **localStorage**, with no server required.
+- 🧠 **Adaptive Feedback** – Identify words you struggle with and improve them over time.
+- 🎨 **Clean Interface** – Built with TypeScript and React for speed, simplicity, and maintainability.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🧩 Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+| Area            | Technology               |
+| --------------- | ------------------------ |
+| Frontend        | React + TypeScript       |
+| Styling         | Tailwind CSS             |
+| State / Storage | Browser **localStorage** |
+| Build Tool      | Vite                     |
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+---
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🗂️ Project Structure
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```
+language-training/
+├── src/
+│   ├── components/      # Reusable UI components
+│   ├── hooks/           # Custom React hooks (e.g., useStoredVar)
+│   ├── lib/             # Utilities functions
+│   ├── models/          # Models for the objects
+│   ├── pages/           # Main application views
+│   ├── utils/           # Helper functions
+│   ├── App.tsx          # Root component
+│   └── main.tsx         # Entry point
+├── index.html
+├── package.json
+├── tsconfig.json
+└── others...
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## 💡 Future Improvements
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- [ ] Add spaced repetition logic for smarter practice scheduling
+- [ ] Allow import/export of word lists
+
+---
+
+## 🔒 Data & Privacy
+
+This app is fully client-side.
+All data (words, progress, preferences) is stored **locally** in your browser via `localStorage`.
+No external servers, accounts, or APIs are required.
+
+---
+
+## 📜 License
+
+This project currently has a **MIT License** — contributions and forks are welcome.
+
+---
+
+## 🤝 Contributing
+
+Contributions, suggestions, and feature ideas are always welcome!
+If you’d like to help improve _Language Training_, feel free to open an issue or submit a pull request.
+
+---
+
+### 🧭 Keywords
+
+`language-learning` · `
