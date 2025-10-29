@@ -20,7 +20,7 @@ export default function Practice() {
   const [currentWordIndex, setCurrentWordIndex] = useState(0);
 
   useEffect(() => {
-    let filteredWords = selectedTags.length > 0 ?
+    const filteredWords = selectedTags.length > 0 ?
       words.filter(
         w => selectedTags.some(
           t => tagWords.get(t)?.get(w)
