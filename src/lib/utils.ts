@@ -8,13 +8,13 @@ export function cn(...inputs: ClassValue[]) {
 
 export function bulkAssignTags(prev: TagWords, tags: string[], words: string[]) {
     console.log(prev)
-    for (let tag of tags) {
+    for (const tag of tags) {
         let line = prev.get(tag);
         if (line === undefined) {
             line = new Map()
             prev.set(tag, line)
         }
-        for (let word of words)
+        for (const word of words)
             line.set(word, true)
     }
 }
