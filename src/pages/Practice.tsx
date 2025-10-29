@@ -78,8 +78,9 @@ export default function Practice() {
                 variant="outline"
                 onClick={() => setCurrentWordIndex(0)}
                 data-testid="button-reset-progress"
+                className="hover:bg-gray-300 group"
               >
-                <RefreshCw className="w-4 h-4 mr-2" />
+                <RefreshCw className="w-4 h-4 mr-2 group-hover:rotate-180 transition duration-500" />
                 Start Over
               </Button>
             </div>
