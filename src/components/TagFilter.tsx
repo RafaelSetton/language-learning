@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ChevronDown, ChevronUp } from "lucide-react";
+import { ChevronDown } from "lucide-react";
 import { Button } from "./ui/button";
 import { Checkbox } from "./ui/checkbox";
 
@@ -38,7 +38,9 @@ export default function TagFilter({ tags, selectedTags, onTagsChange }: TagFilte
         data-testid="button-toggle-filter"
       >
         <span className="font-semibold text-lg">Filter by Tags</span>
-        {isExpanded ? <ChevronUp className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
+
+        <ChevronDown className={`w-5 h-5 ${isExpanded ? "rotate-180" : ""} transition`} />
+
       </button>
 
       {isExpanded && (
@@ -57,6 +59,7 @@ export default function TagFilter({ tags, selectedTags, onTagsChange }: TagFilte
               size="sm"
               onClick={clearAll}
               data-testid="button-clear-all-tags"
+              className="hover:bg-gray-300"
             >
               Clear All
             </Button>
@@ -66,7 +69,7 @@ export default function TagFilter({ tags, selectedTags, onTagsChange }: TagFilte
             {tags.map(tag => (
               <label
                 key={tag}
-                className="flex items-center gap-2 px-3 py-2 rounded-full border cursor-pointer hover:bg-muted transition-colors"
+                className="flex items-center gap-2 px-3 py-2 rounded-full border cursor-pointer hover:bg-gray-300 transition-colors"
                 data-testid={`tag-filter-${tag}`}
               >
                 <Checkbox
