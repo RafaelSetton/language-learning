@@ -43,10 +43,10 @@ export default function BulkTagAssignment({ words, tags, onAssign }: BulkTagAssi
     <div className="bg-card border rounded-xl p-6">
       <h2 className="text-xl font-semibold mb-4">Bulk Tag Assignment</h2>
 
-      <div className="grid md:grid-cols-3 gap-4 items-center">
-        <div>
+      <div className="flex gap-8 items-center">
+        <div className="w-1/2">
           <Label className="font-semibold mb-2 block">Select Words</Label>
-          <div className="space-y-2 max-h-64 overflow-auto border rounded-lg p-3">
+          <div className="space-y-2 max-h-64 overflow-auto border rounded-lg p-3 grid grid-cols-2">
             {words.length === 0 ? (
               <p className="text-sm text-muted-foreground text-center py-4">
                 No words available
@@ -55,7 +55,7 @@ export default function BulkTagAssignment({ words, tags, onAssign }: BulkTagAssi
               words.map(word => (
                 <label
                   key={word}
-                  className="flex items-center gap-2 p-2 hover:bg-muted rounded cursor-pointer"
+                  className="flex items-center gap-2 p-2 hover:bg-gray-100 rounded cursor-pointer"
                   data-testid={`word-select-${word}`}
                 >
                   <Checkbox
@@ -76,7 +76,7 @@ export default function BulkTagAssignment({ words, tags, onAssign }: BulkTagAssi
           <ArrowRight className="w-8 h-8 text-muted-foreground" />
         </div>
 
-        <div>
+        <div className="w-5/12">
           <Label className="font-semibold mb-2 block">Select Tags</Label>
           <div className="space-y-2 max-h-64 overflow-auto border rounded-lg p-3">
             {tags.length === 0 ? (
@@ -87,7 +87,7 @@ export default function BulkTagAssignment({ words, tags, onAssign }: BulkTagAssi
               tags.map(tag => (
                 <label
                   key={tag}
-                  className="flex items-center gap-2 p-2 hover:bg-muted rounded cursor-pointer"
+                  className="flex items-center gap-2 p-2 hover:bg-gray-100 rounded cursor-pointer"
                   data-testid={`tag-assign-${tag}`}
                 >
                   <Checkbox
@@ -108,7 +108,7 @@ export default function BulkTagAssignment({ words, tags, onAssign }: BulkTagAssi
       <Button
         onClick={handleAssign}
         disabled={selectedWords.length === 0 || selectedTags.length === 0}
-        className="w-full mt-6"
+        className="w-full mt-6 hover:bg-gray-200 hover:border border-gray-500"
         data-testid="button-assign-tags"
       >
         Assign Tags to Selected Words

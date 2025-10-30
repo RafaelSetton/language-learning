@@ -33,7 +33,7 @@ export default function TagManager({ tags, onCreateTag, onDeleteTag }: TagManage
               data-testid="input-new-tag"
             />
           </div>
-          <Button onClick={handleCreate} data-testid="button-create-tag">
+          <Button onClick={handleCreate} data-testid="button-create-tag" className="hover:bg-gray-300">
             <Plus className="w-4 h-4 mr-2" />
             Create
           </Button>
@@ -47,11 +47,11 @@ export default function TagManager({ tags, onCreateTag, onDeleteTag }: TagManage
             No tags yet. Create your first tag above.
           </p>
         ) : (
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-3 gap-3">
             {tags.map(tag => (
               <div
                 key={tag}
-                className="flex items-center justify-between p-3 bg-muted rounded-lg"
+                className="flex items-center justify-between p-3 hover:bg-gray-100 rounded-lg"
                 data-testid={`tag-item-${tag}`}
               >
                 <span className="font-medium">{tag}</span>
@@ -59,7 +59,7 @@ export default function TagManager({ tags, onCreateTag, onDeleteTag }: TagManage
                   variant="ghost"
                   size="sm"
                   onClick={() => onDeleteTag(tag)}
-                  className="text-destructive hover:text-destructive hover:bg-destructive/10"
+                  className="text-destructive rounded-4xl hover:bg-red-400"
                   data-testid={`button-delete-tag-${tag}`}
                 >
                   <Trash2 className="w-4 h-4" />

@@ -5,6 +5,11 @@ Easily organize your words by **tags**, test yourself interactively, and watch y
 
 ---
 
+<div style="display: flex; gap: 2%; ">
+    <img src="./images/practice.png" alt="Practice" width="49%">
+    <img src="./images/timeline.png" alt="Timeline" width="49%">
+</div>
+
 ## ✨ Features
 
 - ✅ **Word Practice** – Review and test your vocabulary in multiple languages.
@@ -78,4 +83,29 @@ If you’d like to help improve _Language Training_, feel free to open an issue 
 
 ### 🧭 Keywords
 
-`language-learning` · `
+`language-learning` · `react`
+
+## 📜 Development History
+
+### v1.0.0
+
+Just a MVP, probably still has a lot of bugs, bad UX and only basic functionalities
+
+### v1.0.1
+
+- Cleaner code
+- Page Icon & Title
+- Has a basic CI (tries to build the app)
+
+### v1.0.2
+
+- Has some improvements in UX (can still improve a lot)
+- Tries to automate releases, but got some weird error (maybe try to do it again in the future)
+
+### v1.1.0
+
+- Finished UX improvements
+- Remodeled stats tracking
+  - Now it tracks your practices and accuracy by day
+  - You can view a timeline of you activity on a designated tab
+  - Keeps a streak of days (like duolingo)

@@ -1,11 +1,19 @@
 import { BarChart3, CheckCircle, Flame } from "lucide-react";
 import type PracticeStats from "../models/Stats";
+import { today } from "../lib/utils";
 
 interface StatsBarProps {
-  stats: PracticeStats;
+  stats: Map<number, PracticeStats>;
 }
 
 export default function StatsBar({ stats }: StatsBarProps) {
+  const { correct, practiced } = stats.get(today()) ?? { correct: 0, practiced: 0 }
+
+  let streakStart = today();
+  while (stats.get(streakStart) !== undefined) streakStart--;
+
+  const streak = today() - streakStart;
+
   return (
     <div className="bg-card border rounded-xl p-4">
       <div className="grid grid-cols-3 gap-4">
@@ -14,9 +22,9 @@ export default function StatsBar({ stats }: StatsBarProps) {
             <BarChart3 className="w-5 h-5 text-primary" />
           </div>
           <div>
-            <div className="text-sm text-muted-foreground">Total Practiced</div>
+            <div className="text-sm text-muted-foreground">Today's Practice</div>
             <div className="text-2xl font-bold" data-testid="stat-total-practiced">
-              {stats.totalPracticed}
+              {practiced}
             </div>
           </div>
         </div>
@@ -28,7 +36,7 @@ export default function StatsBar({ stats }: StatsBarProps) {
           <div>
             <div className="text-sm text-muted-foreground">Success Rate</div>
             <div className="text-2xl font-bold" data-testid="stat-success-rate">
-              {(stats.successRate * 100).toFixed(0)}%
+              {practiced == 0 ? "--" : (correct / practiced * 100).toFixed(0)}%
             </div>
           </div>
         </div>
@@ -38,9 +46,9 @@ export default function StatsBar({ stats }: StatsBarProps) {
             <Flame className="w-5 h-5 text-orange-600" />
           </div>
           <div>
-            <div className="text-sm text-muted-foreground">Current Streak</div>
+            <div className="text-sm text-muted-foreground">Current Day Streak</div>
             <div className="text-2xl font-bold" data-testid="stat-current-streak">
-              {stats.currentStreak}
+              {streak}
             </div>
           </div>
         </div>

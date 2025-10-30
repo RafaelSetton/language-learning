@@ -51,6 +51,7 @@ export default function TagFilter({ tags, selectedTags, onTagsChange }: TagFilte
               size="sm"
               onClick={selectAll}
               data-testid="button-select-all-tags"
+              className="hover:bg-gray-300"
             >
               Select All
             </Button>

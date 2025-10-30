@@ -18,3 +18,6 @@ export function bulkAssignTags(prev: TagWords, tags: string[], words: string[]) 
             line.set(word, true)
     }
 }
+
+
+export const today = () => Math.floor(Date.now() / (1000 * 60 * 60 * 24));

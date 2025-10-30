@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { GraduationCap, BookPlus, Tags } from "lucide-react";
+import { GraduationCap, BookPlus, Tags, ChartNoAxesCombined } from "lucide-react";
 
 export default function Navigation() {
   const [location] = useLocation();
@@ -8,6 +8,7 @@ export default function Navigation() {
     { href: "/", label: "Practice", icon: GraduationCap },
     { href: "/add-words", label: "Add Words", icon: BookPlus },
     { href: "/manage-tags", label: "Manage Tags", icon: Tags },
+    { href: "/timeline", label: "Training Timeline", icon: ChartNoAxesCombined },
   ];
 
   return (
@@ -18,21 +19,21 @@ export default function Navigation() {
             <GraduationCap className="w-6 h-6 text-primary" />
             <span className="font-bold text-xl">Language Practice</span>
           </div>
-          
+
           <div className="flex gap-2">
             {links.map((link) => {
               const Icon = link.icon;
               const isActive = location === link.href;
-              
+
               return (
                 <Link key={link.href} href={link.href}>
                   <div
                     data-testid={`link-${link.label.toLowerCase().replace(" ", "-")}`}
                     className={`
                       flex items-center gap-2 px-4 py-2 rounded-lg font-medium transition-colors cursor-pointer
-                      ${isActive 
-                        ? "bg-primary text-primary-foreground" 
-                        : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                      ${isActive
+                        ? "bg-gray-300 text-primary-foreground"
+                        : "text-muted-foreground hover:bg-gray-100"
                       }
                     `}
                   >

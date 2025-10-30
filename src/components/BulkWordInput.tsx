@@ -68,10 +68,10 @@ export default function BulkWordInput({
                   key={tag}
                   onClick={() => toggleTag(tag)}
                   className={`
-                    px-3 py-1 rounded-full text-sm font-medium transition-colors
+                    px-3 py-1 rounded-full text-sm font-medium transition-colors cursor-pointer
                     ${isSelected
-                      ? "bg-primary text-primary-foreground"
-                      : "bg-muted text-muted-foreground hover:bg-muted/80"
+                      ? "bg-gray-300 hover:bg-gray-200"
+                      : "hover:bg-gray-100"
                     }
                   `}
                   data-testid={`tag-select-${tag}`}
@@ -88,7 +88,7 @@ export default function BulkWordInput({
         onClick={handleSubmit}
         disabled={words.length === 0}
         size="lg"
-        className="w-full"
+        className="w-full hover:bg-gray-200 hover:border border-gray-500"
         data-testid="button-add-all-words"
       >
         Add All Words ({words.length})
