@@ -1,5 +1,5 @@
 import { Link, useLocation } from "wouter";
-import { GraduationCap, BookPlus, Tags } from "lucide-react";
+import { GraduationCap, BookPlus, Tags, ChartNoAxesCombined } from "lucide-react";
 
 export default function Navigation() {
   const [location] = useLocation();
@@ -8,6 +8,7 @@ export default function Navigation() {
     { href: "/", label: "Practice", icon: GraduationCap },
     { href: "/add-words", label: "Add Words", icon: BookPlus },
     { href: "/manage-tags", label: "Manage Tags", icon: Tags },
+    { href: "/timeline", label: "Training Timeline", icon: ChartNoAxesCombined },
   ];
 
   return (
