@@ -7,12 +7,13 @@ import { useStoredVar } from "../hooks/storedVar";
 import type { TagWords } from "../models/TagWords";
 import type PracticeStats from "../models/Stats";
 import { Button } from "../components/ui/button";
+import { today } from "../lib/utils";
 
 export default function Practice() {
   const [tagWords] = useStoredVar<TagWords>("tag-words", new Map())
   const [words] = useStoredVar<string[]>("words", [])
   const [tags] = useStoredVar<string[]>("tags", [])
-  const [stats, setStats] = useStoredVar<PracticeStats>("stats", { currentStreak: 0, successRate: 0, totalPracticed: 0 })
+  const [stats, setStats] = useStoredVar<Map<number, PracticeStats>>("stats_v2", new Map())
   const [selectedTags, setSelectedTags] = useState<string[]>([]);
   const [validWords, setValidWords] = useState<string[]>(words)
   const [currentWord, setCurrentWord] = useState(words[0])
@@ -36,11 +37,13 @@ export default function Practice() {
   }, [validWords, currentWordIndex])
 
   const handleAnswer = (correct: boolean) => {
-    setStats(({ currentStreak, successRate, totalPracticed }) => ({
-      currentStreak: correct ? currentStreak + 1 : 0,
-      successRate: (successRate * totalPracticed + Number(correct)) / (totalPracticed + 1),
-      totalPracticed: totalPracticed + 1,
-    }));
+    let todayStats = stats.get(today());
+    if (todayStats === undefined)
+      stats.set(today(), { practiced: 1, correct: Number(correct) })
+    else
+      stats.set(today(), { practiced: todayStats.practiced + 1, correct: todayStats.correct + Number(correct) })
+
+    setStats(stats);
     setCurrentWordIndex((currentWordIndex + 1) % validWords.length)
   }
 
